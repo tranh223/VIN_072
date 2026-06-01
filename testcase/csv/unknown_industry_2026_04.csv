@@ -1,0 +1,4 @@
+date,revenue,platform,period,customer,description,order_id,industry
+2026-04-05,3000000,Facebook,2026-04,Nguyễn Văn A,Bán mỹ phẩm,FB-001,Mỹ phẩm
+2026-04-12,4500000,TikTok,2026-04,Trần Thị B,Bán đồ handmade,TT-002,Đồ thủ công
+2026-04-20,2200000,Instagram,2026-04,Lê Văn C,Bán sách,IG-003,Sách

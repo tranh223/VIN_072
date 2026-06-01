@@ -1,0 +1,252 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Những bước tiến đầu tiên</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf8ff",
+                        "surface-tint": "#5249d3",
+                        "outline-variant": "#CBC3D6",
+                        "inverse-on-surface": "#f3effb",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8ff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1b1b23",
+                        "on-tertiary-container": "#a4c1ff",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#4136c3",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#2a0053",
+                        "primary": "#2812ad",
+                        "secondary-fixed-dim": "#dab9ff",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-dim": "#dcd8e4",
+                        "secondary-container": "#c99dfe",
+                        "inverse-surface": "#302f38",
+                        "tertiary": "#003578",
+                        "surface-container-highest": "#e4e1ed",
+                        "surface-container-high": "#eae6f2",
+                        "surface-highest": "#E2E2E2",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-primary-fixed": "#100069",
+                        "on-background": "#1b1b23",
+                        "on-secondary-container": "#572d87",
+                        "on-tertiary-fixed": "#001a41",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-lowest": "#FFFFFF",
+                        "on-primary-container": "#bdb9ff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-surface-variant": "#464554",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fcf8ff",
+                        "error": "#BA1A1A",
+                        "on-secondary-fixed-variant": "#5a318a",
+                        "surface-container-low": "#f6f2fe",
+                        "tertiary-container": "#204d95",
+                        "inverse-primary": "#c3c0ff",
+                        "secondary-fixed": "#eedbff",
+                        "primary-fixed": "#E9DDFF",
+                        "surface-variant": "#e4e1ed",
+                        "on-primary-fixed-variant": "#392cbb",
+                        "surface-container": "#f0ecf8",
+                        "secondary": "#734aa4",
+                        "outline": "#777586",
+                        "on-tertiary-fixed-variant": "#13448d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "margin-desktop": "32px",
+                        "3xl": "64px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Sans"],
+                        "label-sm": ["Noto Sans"],
+                        "label-lg": ["Noto Sans"],
+                        "body-md": ["Noto Sans"],
+                        "body-lg": ["Noto Sans"],
+                        "title-lg": ["Noto Sans"],
+                        "display-lg": ["Noto Sans"],
+                        "headline-lg-mobile": ["Noto Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-sans">
+<!-- TopAppBar -->
+<header class="bg-surface flex justify-between items-center w-full px-margin-desktop py-md max-w-full z-50">
+<div class="font-headline-lg text-headline-lg font-bold text-primary"><img src="../assets/scaify-logo.png" alt="Scaify Logo" class="h-8 w-auto object-contain"></div>
+<div class="flex items-center cursor-pointer transition-opacity active:opacity-70">
+<span class="material-symbols-outlined text-primary text-2xl">account_circle</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-desktop py-xl pb-3xl">
+<!-- Header Section -->
+<div class="mb-xl">
+<p class="font-label-lg text-label-lg text-secondary mb-xs uppercase tracking-wider">Traction &amp; Hiện trạng</p>
+<h1 class="font-display-lg text-display-lg text-on-surface">Những bước tiến đầu tiên</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-sm max-w-2xl">
+                Traction ở giai đoạn này không phải là doanh thu lớn, mà là luồng sản phẩm chạy được end-to-end, có log, có phản hồi và có thể lặp lại trong pilot thật.
+            </p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Metrics Card (Col Span 4) -->
+<div class="md:col-span-4 bg-primary-container rounded-xl p-lg flex flex-col justify-between overflow-hidden relative">
+<div class="absolute -right-8 -top-8 w-48 h-48 bg-white opacity-5 rounded-full blur-2xl"></div>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-primary-container mb-sm">Luồng lõi đã chạy</h2>
+<p class="font-body-md text-body-md text-primary-fixed-dim">Upload, OCR, đối soát, cảnh báo và lưu hồ sơ đã nối thành một pipeline hoàn chỉnh.</p>
+</div>
+<div class="mt-lg">
+<div class="font-display-lg text-display-lg text-on-primary-container font-bold leading-none">1<span class="text-3xl">x</span></div>
+<p class="font-label-lg text-label-lg text-primary-fixed-dim mt-xs uppercase tracking-wide">Luồng end-to-end</p>
+</div>
+</div>
+<!-- Features Checklist (Col Span 8) -->
+<div class="md:col-span-8 bg-surface-container-low border border-outline-variant rounded-xl p-lg">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary">task_alt</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">Tín hiệu đã có</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md mt-sm">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-md flex items-start gap-md shadow-sm border border-surface-container-high">
+<span class="material-symbols-outlined text-secondary mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold">Pipeline chạy được</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Upload → OCR → đối soát → cảnh báo → hồ sơ theo kỳ.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-md flex items-start gap-md shadow-sm border border-surface-container-high">
+<span class="material-symbols-outlined text-secondary mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold">Test tự động</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Có test cho pipeline, compliance score và lớp giải thích.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest rounded-lg p-md flex items-start gap-md shadow-sm border border-surface-container-high">
+<span class="material-symbols-outlined text-secondary mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold">Demo nội bộ</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Đã có demo nội bộ với log phản hồi để tiếp tục lặp sản phẩm.</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface-container-lowest rounded-lg p-md flex items-start gap-md shadow-sm border border-surface-container-high">
+<span class="material-symbols-outlined text-secondary mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold">Proof có thể chỉ ra</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Có PRD, kiến trúc, và hồ sơ để giải thích vì sao kết quả ra như vậy.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Lessons Learned (Col Span 5) -->
+<div class="md:col-span-5 bg-surface-container rounded-xl p-lg border border-surface-variant">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-tertiary">lightbulb</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">Bài học từ pilot</h2>
+</div>
+<div class="space-y-md">
+<div class="relative pl-lg before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-tertiary before:rounded-full">
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Người dùng cần một luồng rất ngắn</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Upload → đối soát → thấy lệch → hiểu vì sao là đủ để tạo giá trị ban đầu.</p>
+</div>
+<div class="relative pl-lg before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-tertiary before:rounded-full">
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Giá trị nằm ở traceability</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Khả năng truy vết file nào tạo ra kết quả nào mới là thứ khiến người dùng tin.</p>
+</div>
+</div>
+</div>
+<!-- Goals (Col Span 7) -->
+<div class="md:col-span-7 bg-surface-container-lowest border-2 border-primary rounded-xl overflow-hidden flex flex-col md:flex-row relative group">
+<!-- Abstract Background for Visual Interest -->
+<div class="absolute inset-0 z-0 bg-cover bg-center opacity-10 transition-transform duration-700 group-hover:scale-105" data-alt="A futuristic, abstract corporate visualization representing exponential growth and forward momentum. The image features sleek, glowing indigo and violet geometric lines zooming upward against a soft, light grey minimalist background, creating a sense of speed and high-tech scalability. The lighting is bright and clean, fitting a modern light-mode enterprise dashboard aesthetic. It conveys a professional, optimistic, and data-driven mood." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1XNQ3r3tcsAmBcGxZjzomuKmil3TvHbGSEHDYOklUoazGwer0Z_x9ZAv_fL5HYDxhJ9Hzv1UP98RYExhRdaDWW8CdrrB8ExUNMOqFe-U_jKuibSOtETQEyH_1Y3mbfU2KEqj9uI1r2TDeveKQqZW15chCDDlPgU3dtHb_vnv5cpApl9GVh4jHAvWlag08RhBnbMmfhoz_b7E1tM6BgbV1a6A8r-RJAewYJMj8-EgPxVkWk7bgVgk-v5EyznrDmLoec5ixhKk9G18');">
+</div>
+<div class="p-lg flex flex-col justify-center relative z-10 w-full">
+<div class="inline-flex items-center gap-2 bg-primary-fixed px-sm py-xs rounded-full w-fit mb-sm">
+<span class="material-symbols-outlined text-on-primary-fixed text-sm">rocket_launch</span>
+<span class="font-label-sm text-label-sm text-on-primary-fixed uppercase font-bold tracking-widest">Mục tiêu 3-6 tháng tới</span>
+</div>
+<h2 class="font-display-lg text-headline-lg text-primary font-bold leading-tight mb-sm">
+                        Mục tiêu tiếp theo:<br>
+<span class="text-4xl md:text-5xl border-b-4 border-secondary pb-1">50 khách hàng pilot</span>
+</h2>
+<ul class="mt-md space-y-sm">
+<li class="flex items-center gap-sm font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+                            Thu thập phản hồi thật từ người bán tự ghi chép.
+                        </li>
+<li class="flex items-center gap-sm font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+                            Tinh chỉnh cảnh báo, ngưỡng và Explain Tax.
+                        </li>
+<li class="flex items-center gap-sm font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+                            Hoàn thiện workflow và lớp giải thích trước khi mở rộng.
+                        </li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low flex justify-between items-center w-full px-margin-desktop py-sm fixed bottom-0 left-0 z-50">
+<div class="font-label-lg text-label-lg font-semibold text-on-surface">© 2026 Scaify AI Intelligence.</div>
+<div class="flex gap-gutter">
+<a class="font-body-md text-body-md text-secondary hover:underline hover:text-primary transition-all duration-200" href="#">Pitch Deck</a>
+<a class="font-body-md text-body-md text-secondary hover:underline hover:text-primary transition-all duration-200" href="#">Team 072</a>
+</div>
+</footer>
+
+
+</body></html>

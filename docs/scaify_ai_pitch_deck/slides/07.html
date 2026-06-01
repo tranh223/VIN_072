@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Scaify - Thị trường &amp; Moat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#fcf8ff",
+                    "surface-tint": "#5249d3",
+                    "outline-variant": "#CBC3D6",
+                    "inverse-on-surface": "#f3effb",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#fcf8ff",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1b1b23",
+                    "on-tertiary-container": "#a4c1ff",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#4136c3",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#2a0053",
+                    "primary": "#2812ad",
+                    "secondary-fixed-dim": "#dab9ff",
+                    "tertiary-fixed-dim": "#adc6ff",
+                    "surface-dim": "#dcd8e4",
+                    "secondary-container": "#c99dfe",
+                    "inverse-surface": "#302f38",
+                    "tertiary": "#003578",
+                    "surface-container-highest": "#e4e1ed",
+                    "surface-container-high": "#eae6f2",
+                    "surface-highest": "#E2E2E2",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-primary-fixed": "#100069",
+                    "on-background": "#1b1b23",
+                    "on-secondary-container": "#572d87",
+                    "on-tertiary-fixed": "#001a41",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "surface-lowest": "#FFFFFF",
+                    "on-primary-container": "#bdb9ff",
+                    "tertiary-fixed": "#d8e2ff",
+                    "on-surface-variant": "#464554",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#fcf8ff",
+                    "error": "#BA1A1A",
+                    "on-secondary-fixed-variant": "#5a318a",
+                    "surface-container-low": "#f6f2fe",
+                    "tertiary-container": "#204d95",
+                    "inverse-primary": "#c3c0ff",
+                    "secondary-fixed": "#eedbff",
+                    "primary-fixed": "#E9DDFF",
+                    "surface-variant": "#e4e1ed",
+                    "on-primary-fixed-variant": "#392cbb",
+                    "surface-container": "#f0ecf8",
+                    "secondary": "#734aa4",
+                    "outline": "#777586",
+                    "on-tertiary-fixed-variant": "#13448d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "2xl": "48px",
+                    "sm": "8px",
+                    "gutter": "24px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "margin-desktop": "32px",
+                    "3xl": "64px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Noto Sans"],
+                    "label-sm": ["Noto Sans"],
+                    "label-lg": ["Noto Sans"],
+                    "body-md": ["Noto Sans"],
+                    "body-lg": ["Noto Sans"],
+                    "title-lg": ["Noto Sans"],
+                    "display-lg": ["Noto Sans"],
+                    "headline-lg-mobile": ["Noto Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                    "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }],
+                    "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                    "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }],
+                    "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }],
+                    "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                    "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }],
+                    "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "400" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-surface docked full-width top-0 flat no shadows flex justify-between items-center w-full px-margin-desktop py-md max-w-full sticky z-50">
+<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim"><img src="../assets/scaify-logo.png" alt="Scaify Logo" class="h-8 md:h-10 w-auto object-contain"></div>
+<div class="flex items-center gap-md">
+<button class="text-primary dark:text-primary-fixed-dim cursor-pointer transition-opacity active:opacity-70 hover:text-primary-container dark:hover:text-primary-fixed-dim transition-colors flex items-center justify-center p-sm rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-2xl" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-xl max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<div class="mb-xl text-center md:text-left">
+<h1 class="font-display-lg text-display-lg text-primary mb-sm">Thị trường đủ lớn để bắt đầu nhỏ</h1>
+<p class="font-title-lg text-body-lg text-on-surface-variant max-w-3xl">Scaify không cần ôm toàn bộ kế toán. Chúng tôi chọn một lát cắt cụ thể: người bán online tự ghi CSV cần đối soát, giải thích và lưu hồ sơ theo kỳ. <strong>Tệp này đủ lớn để bắt đầu từ một nhóm hẹp rồi mở rộng dần sang hàng nghìn workspace.</strong></p>
+</div>
+<!-- Bento Grid Layout for Market Comparison -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Core Differentiator Highlight (RAG Bot) -->
+<div class="md:col-span-12 lg:col-span-8 bg-primary text-on-primary rounded-xl p-xl shadow-md relative overflow-hidden flex flex-col justify-center min-h-[300px]">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container rounded-full blur-3xl opacity-50 -mr-20 -mt-20"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-md mb-md">
+<span class="material-symbols-outlined icon-fill text-4xl text-tertiary-fixed-dim">smart_toy</span>
+<h2 class="font-headline-lg text-headline-lg font-bold">Lớp đối soát chuyên biệt</h2>
+</div>
+<p class="font-body-lg text-body-lg mb-lg max-w-2xl text-primary-fixed">Điểm mạnh của Scaify không nằm ở việc làm thay toàn bộ kế toán, mà ở chỗ giải đúng một bài toán rất lặp lại: khớp CSV tự ghi với chứng từ, chỉ ra lệch, giải thích vì sao và lưu lại hồ sơ theo kỳ.</p>
+<div class="flex flex-wrap gap-sm">
+<span class="bg-primary-container text-on-primary-container font-label-lg text-label-lg px-md py-sm rounded-full border border-primary-fixed-dim/30">Tệp khách đủ lớn</span>
+<span class="bg-primary-container text-on-primary-container font-label-lg text-label-lg px-md py-sm rounded-full border border-primary-fixed-dim/30">Workflow lặp lại theo kỳ</span>
+<span class="bg-primary-container text-on-primary-container font-label-lg text-label-lg px-md py-sm rounded-full border border-primary-fixed-dim/30">Giải thích có căn cứ</span>
+</div>
+</div>
+</div>
+<!-- The Legacy Problem (Excel) -->
+<div class="md:col-span-6 lg:col-span-4 bg-surface-container-low border border-outline-variant rounded-xl p-lg flex flex-col transition-all hover:bg-surface-container-high hover:shadow-sm group">
+<div class="mb-md flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-error">table_view</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Excel / Sheet</h3>
+</div>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded">Truyền thống</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Linh hoạt nhưng phụ thuộc thao tác tay, khó truy vết và dễ lệch khi dữ liệu nằm ở nhiều file khác nhau.</p>
+<div class="border-t border-outline-variant/50 pt-md mt-auto">
+<div class="flex items-center gap-sm text-error mb-xs">
+<span class="material-symbols-outlined text-sm">close</span>
+<span class="font-body-md text-body-md">Dò tay từng file</span>
+</div>
+<div class="flex items-center gap-sm text-error">
+<span class="material-symbols-outlined text-sm">close</span>
+<span class="font-body-md text-body-md">Khó giải trình vì sao</span>
+</div>
+</div>
+</div>
+<!-- Existing Tools (POS) -->
+<div class="md:col-span-6 lg:col-span-4 bg-surface-container-low border border-outline-variant rounded-xl p-lg flex flex-col transition-all hover:bg-surface-container-high hover:shadow-sm">
+<div class="mb-md flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-tertiary">point_of_sale</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">POS / sàn</h3>
+</div>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded">Bán hàng</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Mạnh về bán hàng, nhưng không giải bài toán đối soát chứng từ của người bán kênh không settlement.</p>
+<div class="border-t border-outline-variant/50 pt-md mt-auto">
+<div class="flex items-center gap-sm text-secondary mb-xs">
+<span class="material-symbols-outlined text-sm">check</span>
+<span class="font-body-md text-body-md">Vận hành bán hàng tốt</span>
+</div>
+<div class="flex items-center gap-sm text-error">
+<span class="material-symbols-outlined text-sm">close</span>
+<span class="font-body-md text-body-md">Thiếu lớp giải thích</span>
+</div>
+</div>
+</div>
+<!-- Existing Tools (Accounting) -->
+<div class="md:col-span-6 lg:col-span-4 bg-surface-container-low border border-outline-variant rounded-xl p-lg flex flex-col transition-all hover:bg-surface-container-high hover:shadow-sm">
+<div class="mb-md flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">account_balance</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Kế toán trọn gói</h3>
+</div>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded">Nghiệp vụ</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Mạnh về nghiệp vụ kế toán, nhưng không phải lớp mỏng chuyên để người bán online tự kiểm chứng dữ liệu trước kỳ thuế.</p>
+<div class="border-t border-outline-variant/50 pt-md mt-auto">
+<div class="flex items-center gap-sm text-secondary mb-xs">
+<span class="material-symbols-outlined text-sm">check</span>
+<span class="font-body-md text-body-md">Chuẩn nghiệp vụ</span>
+</div>
+<div class="flex items-center gap-sm text-error">
+<span class="material-symbols-outlined text-sm">close</span>
+<span class="font-body-md text-body-md">Không tối ưu cho tự đối soát</span>
+</div>
+</div>
+</div>
+<!-- The Scaify Advantage Summary -->
+<div class="md:col-span-6 lg:col-span-4 bg-surface-container border border-primary/20 rounded-xl p-lg flex flex-col justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container to-surface-container-high opacity-50"></div>
+<div class="relative z-10 text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mx-auto mb-md">
+<span class="material-symbols-outlined text-3xl icon-fill">analytics</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary font-semibold mb-sm">Scaify: Nền tảng Thế hệ mới</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Scaify là workflow đối soát theo kỳ, dữ liệu chứng từ tích lũy, và lớp giải thích có căn cứ pháp lý.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface flat no shadows flex justify-between items-center w-full px-margin-desktop py-sm fixed bottom-0 left-0 z-50">
+<div class="font-label-lg text-label-lg font-semibold text-on-surface dark:text-surface-lowest">Scaify</div>
+<div class="flex gap-lg">
+<span class="font-label-sm text-label-sm text-secondary dark:text-secondary-fixed-dim">©2026 Scaify AI Intelligence.</span>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:underline hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-200" href="#">Pitch Deck</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:underline hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-200" href="#">Team 072</a>
+</div>
+</footer>
+
+
+</body></html>

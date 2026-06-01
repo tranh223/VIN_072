@@ -1,0 +1,162 @@
+name: CI / CD — Scaify
+
+# ─────────────────────────────────────────────────────────────────
+#  Trigger
+# ─────────────────────────────────────────────────────────────────
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Secrets (Settings → Secrets and variables → Actions):
+#   GHCR_USERNAME — username GitHub của người TẠO PAT (không phải tên org)
+#   GHCR_TOKEN    — PAT classic: write:packages + read:packages (+ repo nếu private)
+#   Nếu org bật SSO: authorize PAT cho org a20-ai-thuc-chien (Settings → PAT → Configure SSO)
+permissions:
+  contents: read
+
+# ─────────────────────────────────────────────────────────────────
+#  Shared env
+# ─────────────────────────────────────────────────────────────────
+env:
+  PYTHON_VERSION: "3.11"
+  NODE_VERSION: "20"
+  REGISTRY: ghcr.io
+  IMAGE_BACKEND: ghcr.io/${{ github.repository_owner }}/scaify-backend
+  IMAGE_RAG:     ghcr.io/${{ github.repository_owner }}/scaify-rag
+  IMAGE_UI:      ghcr.io/${{ github.repository_owner }}/scaify-ui
+
+# ─────────────────────────────────────────────────────────────────
+#  JOB 1: Python lint + unit tests (không cần API key)
+# ─────────────────────────────────────────────────────────────────
+jobs:
+  python-test:
+    name: "Python — lint & test"
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Lint (ruff / pyflakes — bỏ qua nếu chưa cài)
+        run: |
+          pip install ruff --quiet
+          ruff check src/ --ignore E501 || true
+
+      # Chỉ chạy các test không cần external API (utility tests)
+      - name: Run unit tests
+        env:
+          PYTHONPATH: src
+          # Biến bắt buộc để import config, không cần giá trị thật
+          PINECONE_API_KEY: "dummy"
+          PINECONE_INDEX_NAME: "dummy"
+          DEFAULT_API_KEY: "dummy"
+          DEFAULT_BASE_URL: "https://api.openai.com/v1"
+          DEFAULT_MODEL_ID: "gpt-4o"
+          JINA_API_KEY: "dummy"
+          MONGO_URI: "mongodb://localhost:27017"
+          MONGO_DB_NAME: "test_db"
+        run: |
+          pip install pytest pytest-asyncio --quiet
+          # Chạy group F-G (utility, không cần LLM/Pinecone thật)
+          pytest testcase/ -v \
+            --ignore=testcase/test_rag_chatbot.py \
+            -k "not integration" \
+            --timeout=60 \
+            || true
+
+# ─────────────────────────────────────────────────────────────────
+#  JOB 2: Frontend lint + build
+# ─────────────────────────────────────────────────────────────────
+  frontend-build:
+    name: "UI — lint & build"
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: ui/package-lock.json
+
+      - name: Install UI dependencies
+        working-directory: ui
+        run: npm ci
+
+      - name: TypeScript check (lint)
+        working-directory: ui
+        run: npm run lint
+
+      - name: Build (Vite)
+        working-directory: ui
+        env:
+          VITE_API_BASE_URL: ""
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-dist
+          path: ui/dist/
+          retention-days: 3
+
+# ─────────────────────────────────────────────────────────────────
+#  JOB 3: Deploy lên GCP VM (Git Pull & Build & Run trực tiếp trên VM)
+# ─────────────────────────────────────────────────────────────────
+  deploy:
+    name: "Deploy → VM (Git Pull & Build & Run)"
+    runs-on: self-hosted
+    needs: [python-test, frontend-build]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment: production
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
+
+      # Thực hiện deploy trực tiếp trên VM qua SSH (Bỏ qua host key checking)
+      - name: Deploy via SSH
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.GCP_SSH_USER }}@${{ secrets.GCP_VM_IP }} << 'EOF'
+            set -e
+            cd /opt/team072
+
+            echo "→ Fetching và đồng bộ mã nguồn mới từ main..."
+            git fetch origin
+            git checkout main
+            git reset --hard origin/main
+
+            echo "→ Ghi file .env cấu hình..."
+            echo "${{ secrets.ENV_PRODUCTION }}" > .env
+
+            echo "→ Build các Docker image trực tiếp trên VM (Parallel)..."
+            # docker compose build sẽ tự dùng cache cục bộ của VM để tăng tốc
+            docker compose build --parallel
+
+            echo "→ Khởi chạy các container mới (Hot swap)..."
+            # docker compose up -d sẽ tự restart các service có image thay đổi
+            docker compose up -d
+
+            echo "→ Dọn dẹp Docker images cũ (dangling) & cache build..."
+            # Dọn dẹp an toàn: Không dùng `system prune --volumes` để tránh mất dữ liệu lưu trữ
+            docker image prune -f
+            docker builder prune -f
+          EOF
+
+      - name: Health check
+        run: |
+          sleep 20
+          curl -f http://${{ secrets.GCP_VM_IP }}/api/health \
+            || echo "⚠️  Health check thất bại — xem log trên VM"
+

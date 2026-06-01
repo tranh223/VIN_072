@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nỗi đau của người bán online - Scaify</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf8ff",
+                        "surface-tint": "#5249d3",
+                        "outline-variant": "#CBC3D6",
+                        "inverse-on-surface": "#f3effb",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8ff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1b1b23",
+                        "on-tertiary-container": "#a4c1ff",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#4136c3",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#2a0053",
+                        "primary": "#2812ad",
+                        "secondary-fixed-dim": "#dab9ff",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-dim": "#dcd8e4",
+                        "secondary-container": "#c99dfe",
+                        "inverse-surface": "#302f38",
+                        "tertiary": "#003578",
+                        "surface-container-highest": "#e4e1ed",
+                        "surface-container-high": "#eae6f2",
+                        "surface-highest": "#E2E2E2",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-primary-fixed": "#100069",
+                        "on-background": "#1b1b23",
+                        "on-secondary-container": "#572d87",
+                        "on-tertiary-fixed": "#001a41",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-lowest": "#FFFFFF",
+                        "on-primary-container": "#bdb9ff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-surface-variant": "#464554",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fcf8ff",
+                        "error": "#BA1A1A",
+                        "on-secondary-fixed-variant": "#5a318a",
+                        "surface-container-low": "#f6f2fe",
+                        "tertiary-container": "#204d95",
+                        "inverse-primary": "#c3c0ff",
+                        "secondary-fixed": "#eedbff",
+                        "primary-fixed": "#E9DDFF",
+                        "surface-variant": "#e4e1ed",
+                        "on-primary-fixed-variant": "#392cbb",
+                        "surface-container": "#f0ecf8",
+                        "secondary": "#734aa4",
+                        "outline": "#777586",
+                        "on-tertiary-fixed-variant": "#13448d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "margin-desktop": "32px",
+                        "3xl": "64px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Sans"],
+                        "label-sm": ["Noto Sans"],
+                        "label-lg": ["Noto Sans"],
+                        "body-md": ["Noto Sans"],
+                        "body-lg": ["Noto Sans"],
+                        "title-lg": ["Noto Sans"],
+                        "display-lg": ["Noto Sans"],
+                        "headline-lg-mobile": ["Noto Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-surface docked full-width top-0 z-50 flat no shadows border-b border-surface-container-highest">
+<div class="flex justify-between items-center w-full px-margin-desktop py-md max-w-full">
+<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim"><img src="../assets/scaify-logo.png" alt="Scaify Logo" class="h-8 md:h-10 w-auto object-contain"></div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant dark:text-outline-variant hover:text-primary-container dark:hover:text-primary-fixed-dim transition-colors cursor-pointer transition-opacity active:opacity-70 p-sm rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-headline-lg">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-2xl md:py-3xl max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<div class="mb-xl md:mb-3xl max-w-5xl">
+<h1 class="font-display-lg text-display-lg text-on-surface font tracking-tight mb-md hidden md:block">
+                Nỗi đau của người bán online
+            </h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font tracking-tight mb-md md:hidden">
+                Nỗi đau của người bán online
+            </h1>
+<p class="font-title-lg text-title-lg text-on-surface-variant leading-relaxed">
+                Khi dữ liệu phát triển nhanh hơn khả năng xử lý thủ công, sự rời rạc trở thành rủi ro lớn nhất.
+            </p>
+</div>
+<!-- The Core Problem Banner (Glassmorphism inspired) -->
+<div class="mb-2xl md:mb-3xl bg-primary-container text-on-primary-container rounded-xl p-lg md:p-xl shadow-sm border border-primary/20 relative overflow-hidden">
+<div class="absolute -right-20 -top-20 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined" style="font-size: 200px; font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="relative z-10 flex flex-col md:flex-row gap-lg items-start md:items-center">
+<div class="p-md bg-on-primary-container text-primary-container rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-headline-lg icon-fill">crisis_alert</span>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg font-semibold mb-sm">Vấn đề cốt lõi</h2>
+<p class="font-body-lg text-body-lg opacity-90 leading-relaxed max-w-4xl">
+                        Hoàn toàn <strong>thiếu vắng một hệ thống tinh gọn</strong> để tự động hóa việc biến dữ liệu thô, rời rạc từ nhiều nguồn thành các hồ sơ rà soát chuẩn chỉnh, đáng tin cậy.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Bento Grid Comparison Table -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Step 1: Gom dữ liệu -->
+<div class="bg-surface-container-low rounded-xl p-lg border border-outline-variant hover:bg-surface-container-high transition-colors duration-300 flex flex-col h-full shadow-sm">
+<div class="flex items-center gap-md mb-lg">
+<div class="p-sm bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined text-title-lg">database</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">1. Gom dữ liệu</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md flex-grow">
+<!-- Reality -->
+<div class="bg-surface-container rounded-lg p-md border border-surface-variant">
+<div class="flex items-center gap-sm mb-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-label-lg">history</span>
+<span class="font-label-lg text-label-lg font-semibold uppercase tracking-wider">Thực tế thủ công</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+                            Tải file Excel thủ công từ nhiều nguồn khác nhau (sàn TMĐT, sao kê ngân hàng, đơn vị vận chuyển). Định dạng lộn xộn, không đồng nhất.
+                        </p>
+</div>
+<!-- Problem -->
+<div class="bg-error-container text-on-error-container rounded-lg p-md border border-error/20">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-label-lg">warning</span>
+<span class="font-label-lg text-label-lg font-semibold uppercase tracking-wider">Vấn đề nảy sinh</span>
+</div>
+<p class="font-body-md text-body-md">
+                            Tốn hàng giờ đồng hồ mỗi ngày chỉ để gom file. Dễ tải thiếu sót dữ liệu, chứa nhiều dữ liệu rác gây nhiễu loạn bước sau.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Step 2: Rà soát -->
+<div class="bg-surface-container-low rounded-xl p-lg border border-outline-variant hover:bg-surface-container-high transition-colors duration-300 flex flex-col h-full shadow-sm">
+<div class="flex items-center gap-md mb-lg">
+<div class="p-sm bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined text-title-lg">plagiarism</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">2. Rà soát &amp; Đối chiếu</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md flex-grow">
+<!-- Reality -->
+<div class="bg-surface-container rounded-lg p-md border border-surface-variant">
+<div class="flex items-center gap-sm mb-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-label-lg">history</span>
+<span class="font-label-lg text-label-lg font-semibold uppercase tracking-wider">Thực tế thủ công</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+                            Phụ thuộc hoàn toàn vào Excel. Dùng hàm VLOOKUP, INDEX MATCH chéo qua lại giữa hàng vạn dòng dữ liệu phức tạp.
+                        </p>
+</div>
+<!-- Problem -->
+<div class="bg-error-container text-on-error-container rounded-lg p-md border border-error/20">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-label-lg">warning</span>
+<span class="font-label-lg text-label-lg font-semibold uppercase tracking-wider">Vấn đề nảy sinh</span>
+</div>
+<p class="font-body-md text-body-md">
+                            Máy tính thường xuyên treo, giật lag. Sai số cực cao do thao tác kéo thả nhầm lẫn. Hoàn toàn không có khả năng đối soát theo thời gian thực.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Step 3: Chuẩn bị hồ sơ -->
+<div class="bg-surface-container-low rounded-xl p-lg border border-outline-variant hover:bg-surface-container-high transition-colors duration-300 flex flex-col h-full shadow-sm">
+<div class="flex items-center gap-md mb-lg">
+<div class="p-sm bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined text-title-lg">folder_supervised</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">3. Chuẩn bị hồ sơ</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md flex-grow">
+<!-- Reality -->
+<div class="bg-surface-container rounded-lg p-md border border-surface-variant">
+<div class="flex items-center gap-sm mb-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-label-lg">history</span>
+<span class="font-label-lg text-label-lg font-semibold uppercase tracking-wider">Thực tế thủ công</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+                            Lắp ráp các con số đã tính toán được vào các mẫu báo cáo, file tổng hợp một cách hoàn toàn thủ công bằng copy-paste.
+                        </p>
+</div>
+<!-- Problem -->
+<div class="bg-error-container text-on-error-container rounded-lg p-md border border-error/20">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-label-lg">warning</span>
+<span class="font-label-lg text-label-lg font-semibold uppercase tracking-wider">Vấn đề nảy sinh</span>
+</div>
+<p class="font-body-md text-body-md">
+                            Mất tính toàn vẹn của dữ liệu. Khi sếp hoặc đối tác hỏi "con số này từ đâu ra", rất khó để truy vết ngược lại nguồn gốc ban đầu.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Step 4: Giải thích lệch -->
+<div class="bg-surface-container-low rounded-xl p-lg border border-outline-variant hover:bg-surface-container-high transition-colors duration-300 flex flex-col h-full shadow-sm">
+<div class="flex items-center gap-md mb-lg">
+<div class="p-sm bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined text-title-lg">balance</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">4. Giải thích số lệch</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md flex-grow">
+<!-- Reality -->
+<div class="bg-surface-container rounded-lg p-md border border-surface-variant">
+<div class="flex items-center gap-sm mb-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-label-lg">history</span>
+<span class="font-label-lg text-label-lg font-semibold uppercase tracking-wider">Thực tế thủ công</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+                            Khi phát hiện doanh thu trên sàn không khớp với tiền về tài khoản, phải bới tìm lại hàng tá file cũ để đối chiếu từng đơn hàng.
+                        </p>
+</div>
+<!-- Problem -->
+<div class="bg-error-container text-on-error-container rounded-lg p-md border border-error/20">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-label-lg">warning</span>
+<span class="font-label-lg text-label-lg font-semibold uppercase tracking-wider">Vấn đề nảy sinh</span>
+</div>
+<p class="font-body-md text-body-md">
+                            Áp lực tâm lý lớn, mất thời gian tranh cãi không có bằng chứng rõ ràng. Rủi ro thất thoát tài chính thực sự do bỏ sót đơn hàng.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-lg border-t border-surface-container-highest">
+<div class="font-label-lg text-label-lg font-semibold text-on-surface dark:text-surface-lowest mb-md md:mb-0">
+                Scaify
+            </div>
+<div class="font-label-sm text-label-sm text-secondary dark:text-secondary-fixed-dim order-3 md:order-2 mt-md md:mt-0 text-center md:text-left">
+                © 2026 Scaify AI Intelligence.
+            </div>
+<nav class="flex gap-lg order-2 md:order-3">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:underline hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-200" href="#">
+                    Pitch Deck
+                </a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:underline hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-200" href="#">
+                    Team 072
+                </a>
+</nav>
+</div>
+</footer>
+
+
+</body></html>

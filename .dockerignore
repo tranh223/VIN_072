@@ -1,0 +1,55 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv
+venv
+env
+*.egg-info
+dist
+build
+.pytest_cache
+.mypy_cache
+.ruff_cache
+
+# Node
+node_modules
+ui/node_modules
+ui/dist
+npm-debug.log*
+
+# IDE & OS
+.cursor
+.vscode
+.idea
+*.DS_Store
+Thumbs.db
+
+# Logs & temp
+*.log
+.ai-log
+*.tmp
+*.bak
+
+# Env files — KHÔNG copy vào image
+.env
+.env.*
+!.env.example
+
+# Test & docs
+tests
+data_test
+docs
+
+# Large media / data
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.mp4

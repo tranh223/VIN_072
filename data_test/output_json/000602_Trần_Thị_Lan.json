@@ -1,0 +1,68 @@
+{
+  "doc_type": "tax_withholding_certificate",
+  "source_file": "D:\\mine\\VinAI\\project\\A20-App-072\\data_test\\pdf\\000602_Trần_Thị_Lan.pdf",
+  "ocr_debug_file": "D:\\mine\\VinAI\\project\\A20-App-072\\data_test\\debug_ocr\\000602_Trần_Thị_Lan.ocr.json",
+  "fields": {
+    "source_file": "D:\\mine\\VinAI\\project\\A20-App-072\\data_test\\pdf\\000602_Trần_Thị_Lan.pdf",
+    "page_count": 2,
+    "document_type": "ecommerce_tax_withholding_certificate",
+    "form_no": "01/CTKT-TMĐT",
+    "symbol": "LZD/2026",
+    "document_no": "000602",
+    "withholding_org_name": "CÔNG TY TNHH RECESS (LAZADA)",
+    "withholding_org_tax_code": "0313308000",
+    "withholding_org_address": "Empress Tower, 138 Hai Bà Trung, Quận 1, TP.HCM",
+    "withholding_org_phone": "19001007",
+    "seller_name": "Trần Thị Lan",
+    "seller_tax_code": "0133000002",
+    "nationality": "Việt Nam",
+    "contact": "Số 123 đường Nguyễn Trãi, Quận 5, TP.HCM",
+    "id_no": null,
+    "issue_place": "HCM",
+    "issue_date": "2026-03-02",
+    "tax_breakdown": {
+      "goods": {
+        "label": "Cung cấp hàng hóa",
+        "code": "10",
+        "revenue": 1200000000,
+        "vat_tax": 12000000,
+        "pit_tax": 6000000,
+        "total_tax": 18000000
+      },
+      "services": {
+        "label": "Cung cấp dịch vụ",
+        "code": "11",
+        "revenue": null,
+        "vat_tax": null,
+        "pit_tax": null,
+        "total_tax": null
+      },
+      "transport_attached_to_goods": {
+        "label": "Vận tải, dịch vụ có gắn với hàng hóa",
+        "code": "12",
+        "revenue": null,
+        "vat_tax": null,
+        "pit_tax": null,
+        "total_tax": null
+      },
+      "other_business": {
+        "label": "Hoạt động kinh doanh khác",
+        "code": "13",
+        "revenue": null,
+        "vat_tax": null,
+        "pit_tax": null,
+        "total_tax": null
+      },
+      "total": {
+        "label": "Tổng cộng",
+        "code": "14",
+        "revenue": 1200000000,
+        "vat_tax": 12000000,
+        "pit_tax": 6000000,
+        "total_tax": 18000000
+      }
+    }
+  },
+  "warnings": [],
+  "is_valid": true
+}

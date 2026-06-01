@@ -1,0 +1,411 @@
+# Scaify Wireframe Spec
+
+## 1. Project Overview
+
+Product: `Scaify`  
+Target: `Tax MVP demo`  
+Primary platform: `Desktop`  
+Canvas: `1440 x 1024`
+
+## 2. Layout System
+
+- Grid: `12 columns`
+- Margin: `80`
+- Gutter: `24`
+- Sidebar width: `240`
+- Main content width: `1120`
+- Spacing scale: `8 / 16 / 24 / 32`
+- Card radius: `16`
+- Primary CTA position: `top-right of content area`
+
+## 3. Frame Set
+
+### Frame 01 - Upload Default
+
+Frame ID: `01_Upload_Default`
+
+Purpose:
+- Upload CSV settlement and invoice images.
+- Establish the initial entry state.
+
+Layout:
+- `Sidebar`
+- `Topbar`
+- `Page Header`
+- `Upload Zone`
+- `File Requirement Card`
+- `Recent Uploads Card`
+
+Dimensions:
+- Sidebar: `240 x full height`
+- Topbar: `1120 x 72`
+- Page Header: `1120 x 88`
+- Upload Zone: `720 x 360`
+- File Requirement Card: `360 x 172`
+- Recent Uploads Card: `360 x 172`
+
+Content:
+- Page Header:
+  - Title: `Tải dữ liệu lên`
+  - Subtitle: `Tải file CSV settlement và ảnh hóa đơn để hệ thống xử lý`
+- Upload Zone:
+  - Large upload icon
+  - Hint text: `Kéo thả file vào đây`
+  - Secondary buttons: `Chọn CSV`, `Chọn ảnh hóa đơn`
+  - Supported formats: `CSV, JPG, PNG, PDF`
+- File Requirement Card:
+  - `1 file CSV`
+  - `1 hoặc nhiều ảnh`
+  - `Ngày đúng kỳ`
+  - `Dung lượng hợp lệ`
+- Recent Uploads Card:
+  - `2 dòng upload gần nhất`
+  - Status examples: `Processed`, `Draft`
+
+States:
+- Empty upload state
+- Ready-to-upload state
+
+---
+
+### Frame 02 - Upload Selected
+
+Frame ID: `02_Upload_Selected`
+
+Purpose:
+- Show selected files before processing.
+
+Layout:
+- Same base shell as Frame 01
+- `Selected Files Panel`
+
+Dimensions:
+- Selected Files Panel: `1120 x 220`
+
+Content:
+- Table columns: `Tên file`, `Trạng thái`
+- File chips: `CSV`, `IMG`
+- Summary row: `1 CSV, 3 ảnh`
+- Primary CTA: `Xử lý`
+- Status card:
+  - `Sẵn sàng xử lý` when valid
+  - `Thiếu CSV / ảnh` when invalid
+
+States:
+- Valid selection
+- Missing file
+
+---
+
+### Frame 03 - Processing / OCR Review
+
+Frame ID: `03_Processing_Review`
+
+Purpose:
+- Show OCR output, CSV preview, and reconciliation before tax output.
+
+Layout:
+- `Sidebar`
+- `Topbar`
+- `Header`
+- `CSV Preview`
+- `Document Preview`
+- `Extracted Fields Panel`
+- `Reconciliation Summary`
+- `Process Timeline`
+
+Dimensions:
+- CSV Preview: `360 x 640`
+- Document Preview: `680 x 640`
+- Extracted Fields Panel: `416 x 640`
+- Reconciliation Summary: `1120 x 120`
+- Process Timeline: `1120 x 120`
+
+Content:
+- Header:
+  - Title: `Đang xử lý dữ liệu`
+  - Badge: `OCR + Parse CSV`
+- CSV Preview:
+  - Settlement summary table
+  - Highlight fields: `revenue_raw`, `platform_fees`, `refunds`
+- Document Preview:
+  - Large invoice image
+  - Thumbnail strip below
+- Extracted Fields Panel:
+  - `Tổng tiền`
+  - `Ngày hóa đơn`
+  - `Mã số thuế`
+  - `Confidence tổng`
+  - Each row includes label, value, confidence chip, edit icon
+  - Low-confidence row style: light yellow + `Cần xác nhận`
+- Reconciliation Summary:
+  - Quick comparison of `CSV vs OCR`
+  - Delta amount
+  - Match / mismatch state
+  - CTA: `Xem giải thích`
+- Process Timeline:
+  - Steps: `Upload -> OCR -> Tính thuế`
+  - Current step highlighted
+
+States:
+- Processing
+- OCR review
+- Reconciliation warning
+
+---
+
+### Frame 04 - Dashboard Clean
+
+Frame ID: `04_Dashboard_Clean`
+
+Purpose:
+- Show the tax dashboard in a normal state.
+
+Layout:
+- `Sidebar`
+- `Topbar`
+- `Header Actions`
+- `KPI Row`
+- `Revenue Card`
+- `Tax Summary Card`
+- `Activity Card`
+
+Dimensions:
+- KPI Row: `1120 x 140`
+- Each KPI card: `357 x 140`
+- Revenue Card: `680 x 320`
+- Tax Summary Card: `416 x 320`
+- Activity Card: `1120 x 220`
+
+Content:
+- KPI 1: `Doanh thu thuần`
+- KPI 2: `Tổng thuế phải nộp`
+- KPI 3: `Số cảnh báo`
+- Revenue Card:
+  - Mini chart / progress bar for `doanh thu quy đổi năm`
+  - Threshold marker: `500.000.000`
+  - Status label: `Đã vượt ngưỡng` / `Còn trong ngưỡng`
+- Tax Summary Card:
+  - `GTGT`
+  - `TNCN`
+  - `Đã khấu trừ`
+  - `Còn phải nộp`
+  - Secondary labels: `Estimated Tax`, `Remaining Tax Due`
+- Activity Card:
+  - `Đã tải dữ liệu`
+  - `OCR hoàn tất`
+  - `Đã tính thuế`
+
+States:
+- Normal
+- Summary populated
+
+---
+
+### Frame 05 - Dashboard Warning
+
+Frame ID: `05_Dashboard_Warning`
+
+Purpose:
+- Show alerts for discrepancy and threshold.
+
+Layout:
+- Same base as Frame 04
+- `Alert Banner Row`
+- `Alert List`
+
+Dimensions:
+- Alert Banner Row: `1120 x 88`
+- Alert List: `1120 x 220`
+
+Content:
+- Banner 1 red:
+  - Title: `Phát hiện lệch dữ liệu giữa CSV và OCR`
+- Banner 2 yellow or red:
+  - Title: `Doanh thu đã vượt/ngần ngưỡng 500.000.000 VND`
+- Alert card:
+  - Severity icon
+  - Title
+  - One-line message
+  - Severity chip
+  - CTA: `Xem giải thích`
+
+States:
+- Discrepancy warning
+- Threshold warning
+- Mixed warnings
+
+---
+
+### Frame 06 - Explain Tax Modal
+
+Frame ID: `06_Explain_Tax_Modal`
+
+Purpose:
+- Explain why the alert appeared and what tax logic was applied.
+
+Layout:
+- `Overlay`
+- `Modal`
+- `Conclusion Block`
+- `Why Block`
+- `Legal Basis Block`
+- `Data Used Block`
+
+Dimensions:
+- Modal: `840 x 680`
+- Conclusion Block: `792 x 96`
+- Why Block: `792 x 140`
+- Legal Basis Block: `792 x 180`
+- Data Used Block: `792 x 120`
+
+Content:
+- Conclusion Block:
+  - Short conclusion about threshold and applied rule
+- Why Block:
+  - Bullet explanation of the alert
+- Legal Basis Block:
+  - 2-3 citation or rule lines
+- Data Used Block:
+  - `Net revenue`
+  - `Annualized revenue`
+  - `Industry`
+  - `Withholding`
+- Footer:
+  - `Đóng`
+  - `Sửa dữ liệu`
+
+States:
+- Alert explanation
+- Legal explanation
+
+---
+
+### Frame 07 - Correction Drawer
+
+Frame ID: `07_Correction_Drawer`
+
+Purpose:
+- Allow correction of OCR values and trigger recalculation.
+
+Layout:
+- `Dashboard Background`
+- `Right Drawer`
+- `Current Value Card`
+- `New Value Form`
+- `Impact Preview`
+- `Drawer Footer`
+
+Dimensions:
+- Right Drawer: `440 x full height`
+- Current Value Card: `392 x 120`
+- New Value Form: `392 x 140`
+- Impact Preview: `392 x 180`
+- Drawer Footer: `392 x 88`
+
+Content:
+- Current Value Card:
+  - `Giá trị OCR hiện tại`
+  - Example value: `18.800.000`
+  - Chip: `Confidence thấp`
+- New Value Form:
+  - Currency input
+  - Optional invoice date input
+- Impact Preview:
+  - Text: `Sau khi cập nhật, hệ thống sẽ tính lại doanh thu, thuế và cảnh báo`
+- Drawer Footer:
+  - Secondary button: `Hủy`
+  - Primary button: `Tính lại`
+
+States:
+- Edit mode
+- Ready to recalculate
+
+---
+
+### Frame 08 - Recalculated Success
+
+Frame ID: `08_Recalculated_Success`
+
+Purpose:
+- Show the updated state after correction.
+
+Layout:
+- `Top Success Toast`
+- `Updated KPI Row`
+- `Updated Alerts`
+- `Updated Activity`
+
+Dimensions:
+- Success Toast: `480 x 56`
+
+Content:
+- Toast: `Đã cập nhật dữ liệu và tính lại kết quả thành công`
+- KPI card: `Tổng thuế phải nộp` with updated value
+- Alerts: refreshed based on new data
+- Activity:
+  - `Người dùng đã sửa trường Tổng tiền`
+  - `Hệ thống đã tính lại kết quả`
+
+States:
+- Success
+- Refreshed dashboard
+
+---
+
+### Frame 09 - Error States
+
+Frame ID: `09_Error_States`
+
+Purpose:
+- Cover failure and low-confidence scenarios.
+
+Layout:
+- `Variant A Upload Error`
+- `Variant B OCR Low Confidence`
+- `Variant C Correction Fail`
+
+Dimensions:
+- Each state card: `720 x 220`
+
+Content:
+- Upload Error:
+  - Title: `Không thể đọc file CSV`
+  - Body: short explanation
+  - CTA: `Tải lại file`
+- OCR Low Confidence:
+  - Title: `OCR chưa đủ tin cậy`
+  - Body: short explanation
+  - CTA: `Xác nhận dữ liệu`
+- Correction Fail:
+  - Title: `Không thể tính lại`
+  - Body: short explanation
+  - CTA: `Thử lại`
+
+States:
+- Upload validation error
+- OCR confidence warning
+- Recalculation failure
+
+## 4. Component Notes
+
+- KPI cards should reuse one base component with variant labels.
+- Alert cards should reuse one severity component: `low`, `medium`, `high`.
+- Tax summary card should support both:
+  - summary mode
+  - breakdown mode
+- Correction drawer should be reusable for OCR amount and invoice date.
+
+## 5. Interaction Notes
+
+- `Upload -> Process`
+- `Alert -> Explain Tax`
+- `Correction -> Recalculate`
+- `Success -> Refresh alerts and KPI`
+
+## 6. Visual Priority
+
+1. The dashboard KPI row should be the first visual anchor.
+2. The alert banner should be the second visual anchor.
+3. The correction drawer should clearly dominate the right side when open.
+4. The OCR / CSV reconciliation should be visible before the user reaches the dashboard.

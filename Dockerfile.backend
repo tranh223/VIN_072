@@ -1,0 +1,37 @@
+# ── Stage 1: base Python ────────────────────────────────────────────────────
+FROM python:3.11-slim AS base
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+WORKDIR /app
+
+# System deps for PyMuPDF, underthesea, sentence-transformers
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential \
+        curl \
+        libgl1 \
+        libglib2.0-0 \
+        libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# ── Stage 2: dependencies ────────────────────────────────────────────────────
+FROM base AS deps
+
+COPY requirements.txt .
+RUN pip install --upgrade pip \
+    && pip install torch --index-url https://download.pytorch.org/whl/cpu \
+    && pip install -r requirements.txt
+
+# ── Stage 3: final image ─────────────────────────────────────────────────────
+FROM deps AS final
+
+COPY src/ ./src/
+
+EXPOSE 8000
+
+# Single worker: session_store is in-process memory; multiple workers cause 404 on
+# /api/{job_id}/extraction and /tax when requests hit a different process than upload.
+CMD ["uvicorn", "src.api.app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]

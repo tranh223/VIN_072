@@ -1,0 +1,4 @@
+seller_id,period,platform_name,revenue_raw,platform_fees,refunds,net_revenue,category
+shop_an_khang_2026,2026-02,Shopee,200000000,10000000,5000000,185000000,goods
+shop_an_khang_2026,2026-01,Shopee,300000000,15000000,5000000,280000000,goods
+shop_an_khang_2026,2025-12,Shopee,350000000,20000000,10000000,320000000,goods

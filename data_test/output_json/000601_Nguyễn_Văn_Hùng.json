@@ -1,0 +1,70 @@
+{
+  "doc_type": "tax_withholding_certificate",
+  "source_file": "D:\\mine\\VinAI\\project\\A20-App-072\\data_test\\pdf\\000601_Nguyễn_Văn_Hùng.pdf",
+  "ocr_debug_file": "D:\\mine\\VinAI\\project\\A20-App-072\\data_test\\debug_ocr\\000601_Nguyễn_Văn_Hùng.ocr.json",
+  "fields": {
+    "source_file": "D:\\mine\\VinAI\\project\\A20-App-072\\data_test\\pdf\\000601_Nguyễn_Văn_Hùng.pdf",
+    "page_count": 2,
+    "document_type": "ecommerce_tax_withholding_certificate",
+    "form_no": "01/CTKT-TMĐT",
+    "symbol": "SHP/2026",
+    "document_no": null,
+    "withholding_org_name": "CÔNG TY TNHH SHOPEE",
+    "withholding_org_tax_code": "0313654543",
+    "withholding_org_address": "Tầng 5, Capital Place, 29 Liễu Giai, Ba Đình, Hà Nội",
+    "withholding_org_phone": "19001221",
+    "seller_name": "Nguyễn Văn Hùng",
+    "seller_tax_code": "0133000001",
+    "nationality": "Việt Nam",
+    "contact": "0912345678",
+    "id_no": null,
+    "issue_place": "Hà Nội",
+    "issue_date": "2026-03-01",
+    "tax_breakdown": {
+      "goods": {
+        "label": "Cung cấp hàng hóa",
+        "code": "10",
+        "revenue": 850000000,
+        "vat_tax": 8500000,
+        "pit_tax": 4250000,
+        "total_tax": 12750000
+      },
+      "services": {
+        "label": "Cung cấp dịch vụ",
+        "code": "11",
+        "revenue": null,
+        "vat_tax": null,
+        "pit_tax": null,
+        "total_tax": null
+      },
+      "transport_attached_to_goods": {
+        "label": "Vận tải, dịch vụ có gắn với hàng hóa",
+        "code": "12",
+        "revenue": null,
+        "vat_tax": null,
+        "pit_tax": null,
+        "total_tax": null
+      },
+      "other_business": {
+        "label": "Hoạt động kinh doanh khác",
+        "code": "13",
+        "revenue": null,
+        "vat_tax": null,
+        "pit_tax": null,
+        "total_tax": null
+      },
+      "total": {
+        "label": "Tổng cộng",
+        "code": "14",
+        "revenue": 850000000,
+        "vat_tax": 8500000,
+        "pit_tax": 4250000,
+        "total_tax": 12750000
+      }
+    }
+  },
+  "warnings": [
+    "document_no missing"
+  ],
+  "is_valid": false
+}

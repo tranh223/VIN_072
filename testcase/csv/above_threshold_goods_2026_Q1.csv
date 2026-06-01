@@ -1,0 +1,4 @@
+date,revenue,platform,period,customer,description,order_id,industry
+2026-01-15,85000000,Facebook,2026-Q1,Công ty ABC,Đơn hàng sỉ tháng 1,FB-001,Phân phối, hàng hóa
+2026-02-10,92000000,Zalo,2026-Q1,Công ty XYZ,Đơn hàng sỉ tháng 2,ZA-002,Phân phối, hàng hóa
+2026-03-20,105000000,Website,2026-Q1,Công ty MNO,Đơn hàng sỉ tháng 3,WEB-003,Phân phối, hàng hóa

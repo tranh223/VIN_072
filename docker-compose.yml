@@ -1,0 +1,95 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Scaify — Production Docker Compose
+#
+# Services:
+#   backend  — FastAPI Tax API        (internal :8000)
+#   rag      — FastAPI RAG Service    (internal :8001)
+#   ui       — React/Nginx frontend   (public   :80)
+#
+# External services (không container hoá):
+#   MongoDB Atlas   — set MONGO_URI trong .env
+#   Pinecone        — set PINECONE_API_KEY trong .env
+#   Google Cloud Storage — file JSON trên HOST: set GCP_SA_KEY_HOST (đường dẫn tuyệt đối).
+#   Trong container luôn đọc tại /run/secrets/gcp-sa-key.json (xem environment bên dưới).
+#   Backend upload/static: volume scaify-backend-storage → /app/storage (bền khi recreate container).
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  # ── Backend API ─────────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    image: scaify-backend:latest
+    container_name: scaify-backend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PYTHONUNBUFFERED: "1"
+      # Ghi đè .env: đường dẫn trong container phải absolute, khớp với volume mount.
+      GOOGLE_APPLICATION_CREDENTIALS: /run/secrets/gcp-sa-key.json
+    volumes:
+      # HOST: đường dẫn tuyệt đối tới file JSON (VM ví dụ: /app/secrets/gcp-sa-key.json)
+      # CONTAINER: luôn /run/secrets/gcp-sa-key.json
+      - ${GCP_SA_KEY_HOST:-/dev/null}:/run/secrets/gcp-sa-key.json:ro
+      # Upload / file tạm backend — giữ dữ liệu khi docker compose down/up hoặc rebuild image
+      - scaify-backend-storage:/app/storage
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - scaify-net
+
+  # ── RAG Service ──────────────────────────────────────────────────────────────
+  rag:
+    build:
+      context: .
+      dockerfile: Dockerfile.rag
+    image: scaify-rag:latest
+    container_name: scaify-rag
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8001/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - scaify-net
+
+  # ── UI / Nginx ───────────────────────────────────────────────────────────────
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    image: scaify-ui:latest
+    container_name: scaify-ui
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - ./nginx.ssl.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      backend:
+        condition: service_healthy
+      rag:
+        condition: service_healthy
+    networks:
+      - scaify-net
+
+networks:
+  scaify-net:
+    driver: bridge
+
+volumes:
+  scaify-backend-storage:
+    name: scaify-backend-storage

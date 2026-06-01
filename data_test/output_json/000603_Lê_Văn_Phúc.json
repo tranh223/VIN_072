@@ -1,0 +1,68 @@
+{
+  "doc_type": "tax_withholding_certificate",
+  "source_file": "D:\\mine\\VinAI\\project\\A20-App-072\\data_test\\pdf\\000603_Lê_Văn_Phúc.pdf",
+  "ocr_debug_file": "D:\\mine\\VinAI\\project\\A20-App-072\\data_test\\debug_ocr\\000603_Lê_Văn_Phúc.ocr.json",
+  "fields": {
+    "source_file": "D:\\mine\\VinAI\\project\\A20-App-072\\data_test\\pdf\\000603_Lê_Văn_Phúc.pdf",
+    "page_count": 2,
+    "document_type": "ecommerce_tax_withholding_certificate",
+    "form_no": "01/CTKT-TMĐT",
+    "symbol": "TTS/2026",
+    "document_no": "000603",
+    "withholding_org_name": "CÔNG TY TNHH TIKTOK VIỆT NAM",
+    "withholding_org_tax_code": "0316647637",
+    "withholding_org_address": "Saigon Centre, 65 Lê Lợi, Quận 1, TP.HCM",
+    "withholding_org_phone": "19009988",
+    "seller_name": "Lê Văn Phúc",
+    "seller_tax_code": "0133000003",
+    "nationality": "Việt Nam",
+    "contact": "0987654321",
+    "id_no": null,
+    "issue_place": "HCM",
+    "issue_date": "2026-03-03",
+    "tax_breakdown": {
+      "goods": {
+        "label": "Cung cấp hàng hóa",
+        "code": "10",
+        "revenue": 1000000000,
+        "vat_tax": 26000000,
+        "pit_tax": 11000000,
+        "total_tax": 37000000
+      },
+      "services": {
+        "label": "Cung cấp dịch vụ",
+        "code": "11",
+        "revenue": null,
+        "vat_tax": null,
+        "pit_tax": null,
+        "total_tax": null
+      },
+      "transport_attached_to_goods": {
+        "label": "Vận tải, dịch vụ có gắn với hàng hóa",
+        "code": "12",
+        "revenue": null,
+        "vat_tax": null,
+        "pit_tax": null,
+        "total_tax": null
+      },
+      "other_business": {
+        "label": "Hoạt động kinh doanh khác",
+        "code": "13",
+        "revenue": null,
+        "vat_tax": null,
+        "pit_tax": null,
+        "total_tax": null
+      },
+      "total": {
+        "label": "Tổng cộng",
+        "code": "14",
+        "revenue": 1000000000,
+        "vat_tax": 26000000,
+        "pit_tax": 11000000,
+        "total_tax": 37000000
+      }
+    }
+  },
+  "warnings": [],
+  "is_valid": true
+}

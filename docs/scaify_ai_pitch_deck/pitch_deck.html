@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scaify AI — Pitch Deck (nộp bài)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1b1b23;
+      --bar: #302f38;
+      --text: #f3effb;
+      --muted: #a39fb5;
+      --accent: #9b72f9;
+      --accent2: #33b090;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: "Noto Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 16px;
+      background: var(--bar);
+      border-bottom: 1px solid rgba(155, 114, 249, 0.25);
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand img { height: 36px; width: auto; display: block; }
+    .brand h1 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.35;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    button {
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      cursor: pointer;
+    }
+    button:hover { background: rgba(255,255,255,0.12); }
+    button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    button.primary {
+      background: linear-gradient(135deg, #4136c3, #9b72f9);
+      border-color: transparent;
+    }
+    button.primary:hover { filter: brightness(1.08); }
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    select {
+      font-family: inherit;
+      font-size: 0.85rem;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: #1b1b23;
+      color: var(--text);
+      min-width: 220px;
+      max-width: min(420px, 100vw);
+    }
+    .frame-wrap {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 8px;
+      background: #0e0e12;
+    }
+    iframe {
+      flex: 1;
+      width: 100%;
+      max-width: 1920px;
+      border: 0;
+      border-radius: 10px;
+      background: #fcf8ff;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    }
+    .hint {
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 6px 16px 10px;
+      text-align: center;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    kbd {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06);
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="brand">
+      <img src="file:///C:/AI%20VinUni/A20-App-072/docs/scaify_ai_pitch_deck/assets/scaify-logo.png" alt="Logo Scaify AI" width="120" height="36">
+      <div>
+        <h1>Pitch Deck — Scaify AI</h1>
+        <div class="meta">Mở bằng Chrome/Edge.</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button type="button" id="btnPrev" aria-label="Slide trước">← Trước</button>
+      <button type="button" id="btnNext" class="primary" aria-label="Slide sau">Sau →</button>
+      <label for="slideSelect" class="sr-only">Chọn slide</label>
+      <select id="slideSelect" aria-label="Danh sách slide"></select>
+    </div>
+  </div>
+  <div class="frame-wrap">
+    <iframe id="deck" title="Nội dung slide" src="slides/01.html"></iframe>
+  </div>
+  <div class="hint">
+    <kbd>←</kbd> <kbd>→</kbd> hoặc <kbd>Space</kbd> chuyển slide · <kbd>Home</kbd> / <kbd>End</kbd> đầu/cuối
+  </div>
+  <script>
+    (function () {
+      var SLIDES = [
+        { file: "01.html", title: "1 — Giới thiệu Scaify AI" },
+        { file: "02.html", title: "2 — Problem & pain point" },
+        { file: "03.html", title: "3 — Solution & New Way" },
+        { file: "04.html", title: "4 — Product Demo" },
+        { file: "05.html", title: "5 — Kiến trúc & tin cậy (Proof kỹ thuật)" },
+        { file: "06.html", title: "6 — Timing / cơ hội (Why now)" },
+        { file: "07.html", title: "7 — Market size & Moat" },
+        { file: "08.html", title: "8 — Business model" },
+        { file: "09.html", title: "9 — Traction" },
+        { file: "10.html", title: "10 — Roadmap & tầm nhìn" },
+        { file: "11.html", title: "11 — Team & khả năng thực thi" },
+        { file: "12.html", title: "12 — Ask / nhu cầu nguồn lực" },
+        { file: "13.html", title: "13 — Closing & liên hệ" }
+      ];
+      var iframe = document.getElementById("deck");
+      var sel = document.getElementById("slideSelect");
+      var btnPrev = document.getElementById("btnPrev");
+      var btnNext = document.getElementById("btnNext");
+      var idx = 0;
+
+      SLIDES.forEach(function (s, i) {
+        var o = document.createElement("option");
+        o.value = String(i);
+        o.textContent = s.title;
+        sel.appendChild(o);
+      });
+
+      function go(i) {
+        idx = Math.max(0, Math.min(SLIDES.length - 1, i));
+        iframe.src = "slides/" + SLIDES[idx].file;
+        sel.value = String(idx);
+        btnPrev.disabled = idx === 0;
+        btnNext.disabled = idx === SLIDES.length - 1;
+      }
+
+      btnPrev.addEventListener("click", function () { go(idx - 1); });
+      btnNext.addEventListener("click", function () { go(idx + 1); });
+      sel.addEventListener("change", function () { go(parseInt(sel.value, 10) || 0); });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.target === sel) return;
+        if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
+          e.preventDefault();
+          go(idx + 1);
+        } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+          e.preventDefault();
+          go(idx - 1);
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          go(0);
+        } else if (e.key === "End") {
+          e.preventDefault();
+          go(SLIDES.length - 1);
+        }
+      });
+
+      iframe.addEventListener("load", function () {
+        try {
+          iframe.contentWindow.focus();
+        } catch (err) {}
+      });
+
+      go(0);
+    })();
+  </script>
+</body>
+</html>

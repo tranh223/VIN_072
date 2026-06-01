@@ -1,0 +1,309 @@
+<!DOCTYPE html><html class="light" lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Mô hình kinh doanh - Scaify</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body { font-family: 'Noto Sans', sans-serif; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf8ff",
+                        "surface-tint": "#5249d3",
+                        "outline-variant": "#CBC3D6",
+                        "inverse-on-surface": "#f3effb",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8ff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1b1b23",
+                        "on-tertiary-container": "#a4c1ff",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#4136c3",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#2a0053",
+                        "primary": "#2812ad",
+                        "secondary-fixed-dim": "#dab9ff",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-dim": "#dcd8e4",
+                        "secondary-container": "#c99dfe",
+                        "inverse-surface": "#302f38",
+                        "tertiary": "#003578",
+                        "surface-container-highest": "#e4e1ed",
+                        "surface-container-high": "#eae6f2",
+                        "surface-highest": "#E2E2E2",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-primary-fixed": "#100069",
+                        "on-background": "#1b1b23",
+                        "on-secondary-container": "#572d87",
+                        "on-tertiary-fixed": "#001a41",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-lowest": "#FFFFFF",
+                        "on-primary-container": "#bdb9ff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-surface-variant": "#464554",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fcf8ff",
+                        "error": "#BA1A1A",
+                        "on-secondary-fixed-variant": "#5a318a",
+                        "surface-container-low": "#f6f2fe",
+                        "tertiary-container": "#204d95",
+                        "inverse-primary": "#c3c0ff",
+                        "secondary-fixed": "#eedbff",
+                        "primary-fixed": "#E9DDFF",
+                        "surface-variant": "#e4e1ed",
+                        "on-primary-fixed-variant": "#392cbb",
+                        "surface-container": "#f0ecf8",
+                        "secondary": "#734aa4",
+                        "outline": "#777586",
+                        "on-tertiary-fixed-variant": "#13448d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "margin-desktop": "32px",
+                        "3xl": "64px",
+                        "base": "8px",
+                        "header-height": "72px",
+                        "footer-height": "60px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Sans"],
+                        "label-sm": ["Noto Sans"],
+                        "label-lg": ["Noto Sans"],
+                        "body-md": ["Noto Sans"],
+                        "body-lg": ["Noto Sans"],
+                        "title-lg": ["Noto Sans"],
+                        "display-lg": ["Noto Sans"],
+                        "headline-lg-mobile": ["Noto Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col pt-header-height pb-footer-height relative font-body-md text-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface flex justify-between items-center w-full px-margin-desktop py-md max-w-full fixed top-0 left-0 right-0 z-50 h-header-height shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+<div class="font-headline-lg text-headline-lg font-bold text-primary"><img src="../assets/scaify-logo.png" alt="Scaify Logo" class="h-9 w-auto object-contain"></div>
+<div class="flex items-center gap-md">
+<button class="cursor-pointer transition-opacity active:opacity-70 hover:text-primary-container text-primary flex items-center justify-center p-sm rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-desktop py-3xl flex flex-col gap-3xl">
+<!-- Header Section -->
+<section class="flex flex-col items-start gap-sm max-w-5xl">
+<!-- <div class="inline-flex items-center justify-center px-md py-sm rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-lg text-label-lg mb-sm">
+                Slide 8: Mô hình kinh doanh
+            </div> -->
+<h1 class="font-display-lg text-display-lg text-on-surface font tracking-tight leading-tight">
+                Ai trả tiền, và vì sao?
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-md max-w-2xl">
+                Scaify ưu tiên một tệp khách hàng chính: người bán online tự ghi CSV. Freemium trước, subscription sau, workspace + API là nhánh mở rộng khi workflow lõi đã chứng minh được nhu cầu.
+            </p>
+</section>
+<!-- Customer Segments: Bento Grid -->
+<section class="flex flex-col gap-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Tệp khách hàng ưu tiên</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Segment 1 -->
+<div class="group bg-surface-container-low rounded-3xl p-2xl border border-outline-variant hover:border-primary-fixed-dim transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 flex flex-col gap-lg relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-secondary-container/30 rounded-full blur-3xl group-hover:bg-secondary-container/50 transition-colors"></div>
+<div class="w-16 h-16 rounded-2xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">domain</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-sm">Người bán online tự ghi chép</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Đây là nhóm có pain rõ nhất: CSV tự ghi, chứng từ rải rác, và nhu cầu đối soát lặp lại theo kỳ. Đây là nơi Scaify tạo giá trị đầu tiên.
+                        </p>
+</div>
+<div class="mt-auto pt-md border-t border-outline-variant/50">
+<ul class="flex flex-col gap-sm">
+<li class="flex items-center gap-sm text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Pain rõ và lặp lại
+                            </li>
+<li class="flex items-center gap-sm text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Dễ chứng minh giá trị
+                            </li>
+</ul>
+</div>
+</div>
+<!-- Segment 2 -->
+<div class="group bg-surface-container-low rounded-3xl p-2xl border border-outline-variant hover:border-primary-fixed-dim transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 flex flex-col gap-lg relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary-container/20 rounded-full blur-3xl group-hover:bg-primary-container/40 transition-colors"></div>
+<div class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-sm">Workspace + API sau này</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Nhóm này là nhánh mở rộng sau pilot lõi. Khi workflow chính đã chứng minh được nhu cầu, Scaify mới mở workspace cho nhiều shop và API tích hợp.
+                        </p>
+</div>
+<div class="mt-auto pt-md border-t border-outline-variant/50">
+<ul class="flex flex-col gap-sm">
+<li class="flex items-center gap-sm text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Mở rộng doanh thu
+                            </li>
+<li class="flex items-center gap-sm text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Khai thác sau pilot
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Model: Cards -->
+<section class="flex flex-col gap-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-center mb-md">Mô hình thu tiền</h2>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter items-end">
+<!-- Plan 1: Freemium -->
+<div class="bg-surface-container-lowest rounded-3xl p-xl border border-outline-variant flex flex-col gap-lg pb-2xl">
+<div>
+<div class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider mb-sm">Mở đầu</div>
+<h3 class="font-display-lg text-display-lg text-on-surface font-semibold">Freemium</h3>
+<div class="font-body-md text-body-md text-on-surface-variant mt-sm">Dùng để cho người dùng thử workflow lõi trước khi mua gói trả phí.</div>
+</div>
+<div class="my-md">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">0đ</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/tháng</span>
+</div>
+<ul class="flex flex-col gap-md mb-xl flex-grow">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-outline mt-[2px] text-[20px]">check</span>
+<span class="font-body-md text-body-md text-on-surface">Giới hạn số kỳ hoặc số file</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-outline mt-[2px] text-[20px]">check</span>
+<span class="font-body-md text-body-md text-on-surface">Trải nghiệm đối soát cơ bản</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-outline mt-[2px] text-[20px]">check</span>
+<span class="font-body-md text-body-md text-on-surface">Nhìn thấy giá trị trước khi trả tiền</span>
+</li>
+</ul>
+<button class="w-full py-md px-lg rounded-full border border-outline text-primary font-label-lg text-label-lg hover:bg-surface-container-low transition-colors">
+                        Bắt đầu miễn phí
+                    </button>
+</div>
+<!-- Plan 2: Subscription (Highlighted) -->
+<div class="bg-primary-container rounded-3xl p-xl border-2 border-primary flex flex-col gap-lg shadow-xl shadow-primary/10 relative transform lg:-translate-y-4 pb-2xl">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-on-primary px-lg py-sm rounded-full font-label-sm text-label-sm uppercase tracking-wider font-bold shadow-md">
+                        Phổ biến nhất
+                    </div>
+<div>
+<div class="font-label-lg text-label-lg text-on-primary-container/80 uppercase tracking-wider mb-sm">Trả phí chính</div>
+<h3 class="font-display-lg text-display-lg text-on-primary-container font-semibold">Subscription</h3>
+<div class="font-body-md text-body-md text-on-primary-container/90 mt-sm">Dành cho người bán tự ghi CSV đã thấy rõ giá trị của đối soát và giải thích.</div>
+</div>
+<div class="my-md">
+<span class="font-headline-lg text-headline-lg text-on-primary-container font-bold">299k</span>
+<span class="font-body-md text-body-md text-on-primary-container/80">/tháng</span>
+</div>
+<ul class="flex flex-col gap-md mb-xl flex-grow">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary-fixed mt-[2px] text-[20px]">check_circle</span>
+<span class="font-body-md text-body-md text-on-primary-container font-medium">Không giới hạn kỳ đối soát</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary-fixed mt-[2px] text-[20px]">check_circle</span>
+<span class="font-body-md text-body-md text-on-primary-container">Đối soát CSV ↔ chứng từ</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary-fixed mt-[2px] text-[20px]">check_circle</span>
+<span class="font-body-md text-body-md text-on-primary-container">Explain Tax và hồ sơ theo kỳ</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary-fixed mt-[2px] text-[20px]">check_circle</span>
+<span class="font-body-md text-body-md text-on-primary-container">Hỗ trợ pilot theo giai đoạn</span>
+</li>
+</ul>
+<button class="w-full py-md px-lg rounded-full bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary/90 transition-colors shadow-md">
+                        Nâng cấp ngay
+                    </button>
+</div>
+<!-- Plan 3: Agency Plan -->
+<div class="bg-surface-container-low rounded-3xl p-xl border border-outline-variant flex flex-col gap-lg pb-2xl">
+<div>
+<div class="font-label-lg text-label-lg text-secondary uppercase tracking-wider mb-sm">Sau này</div>
+<h3 class="font-display-lg text-display-lg text-on-surface font-semibold">Agency</h3>
+<div class="font-body-md text-body-md text-on-surface-variant mt-sm">Chỉ mở khi workflow lõi đã chứng minh được nhu cầu rõ ràng ở nhóm chính.</div>
+</div>
+<div class="my-md">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">Tùy chỉnh</span>
+<span class="font-body-md text-body-md text-on-surface-variant hidden">/tháng</span>
+</div>
+<ul class="flex flex-col gap-md mb-xl flex-grow">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary mt-[2px] text-[20px]">business_center</span>
+<span class="font-body-md text-body-md text-on-surface">Gói agency đa shop</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary mt-[2px] text-[20px]">group_add</span>
+<span class="font-body-md text-body-md text-on-surface">Quản lý nhiều workspace</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary mt-[2px] text-[20px]">api</span>
+<span class="font-body-md text-body-md text-on-surface">API / white-label sau pilot</span>
+</li>
+</ul>
+<button class="w-full py-md px-lg rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg hover:bg-secondary-container/80 transition-colors">
+                        Liên hệ tư vấn
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low flex justify-between items-center w-full px-margin-desktop py-sm fixed bottom-0 left-0 h-footer-height shadow-[0_-1px_2px_0_rgba(0,0,0,0.05)] z-50">
+<div class="font-label-lg text-label-lg font-semibold text-on-surface">
+            © 2026 Scaify AI Intelligence.
+        </div>
+<div class="flex gap-lg">
+<a class="font-body-md text-body-md text-secondary hover:underline hover:text-primary transition-all duration-200" href="#">
+                Pitch Deck
+            </a>
+<a class="font-body-md text-body-md text-secondary hover:underline hover:text-primary transition-all duration-200" href="#">
+                Team 072
+            </a>
+</div>
+</footer>
+
+
+</body></html>

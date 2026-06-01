@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Scaify - Kêu gọi đầu tư</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf8ff",
+                        "surface-tint": "#5249d3",
+                        "outline-variant": "#CBC3D6",
+                        "inverse-on-surface": "#f3effb",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8ff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1b1b23",
+                        "on-tertiary-container": "#a4c1ff",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#4136c3",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#2a0053",
+                        "primary": "#2812ad",
+                        "secondary-fixed-dim": "#dab9ff",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-dim": "#dcd8e4",
+                        "secondary-container": "#c99dfe",
+                        "inverse-surface": "#302f38",
+                        "tertiary": "#003578",
+                        "surface-container-highest": "#e4e1ed",
+                        "surface-container-high": "#eae6f2",
+                        "surface-highest": "#E2E2E2",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-primary-fixed": "#100069",
+                        "on-background": "#1b1b23",
+                        "on-secondary-container": "#572d87",
+                        "on-tertiary-fixed": "#001a41",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-lowest": "#FFFFFF",
+                        "on-primary-container": "#bdb9ff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-surface-variant": "#464554",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fcf8ff",
+                        "error": "#BA1A1A",
+                        "on-secondary-fixed-variant": "#5a318a",
+                        "surface-container-low": "#f6f2fe",
+                        "tertiary-container": "#204d95",
+                        "inverse-primary": "#c3c0ff",
+                        "secondary-fixed": "#eedbff",
+                        "primary-fixed": "#E9DDFF",
+                        "surface-variant": "#e4e1ed",
+                        "on-primary-fixed-variant": "#392cbb",
+                        "surface-container": "#f0ecf8",
+                        "secondary": "#734aa4",
+                        "outline": "#777586",
+                        "on-tertiary-fixed-variant": "#13448d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "margin-desktop": "32px",
+                        "3xl": "64px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Sans"],
+                        "label-sm": ["Noto Sans"],
+                        "label-lg": ["Noto Sans"],
+                        "body-md": ["Noto Sans"],
+                        "body-lg": ["Noto Sans"],
+                        "title-lg": ["Noto Sans"],
+                        "display-lg": ["Noto Sans"],
+                        "headline-lg-mobile": ["Noto Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md text-body-md pt-20 pb-20">
+<!-- TopAppBar Component (from JSON) -->
+<header class="bg-surface dark:bg-on-surface flex justify-between items-center w-full px-margin-desktop py-md max-w-full fixed top-0 left-0 z-50">
+<div class="cursor-pointer transition-opacity active:opacity-70"><img src="../assets/scaify-logo.png" alt="Scaify Logo" class="h-10 w-auto object-contain"></div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim cursor-pointer transition-opacity active:opacity-70 hover:text-primary-container dark:hover:text-primary-fixed-dim transition-colors" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+<!-- Section Header -->
+<div class="mb-xl">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-sm tracking-tight">Kêu gọi đầu tư</h1>
+<!-- <p class="font-title-lg text-title-lg text-on-surface-variant">Theo khung pitch: <strong>Ask rõ</strong> nhu cầu vốn → <strong>mục tiêu đo được</strong> trong 6 tháng → phân bổ chi phí minh bạch.</p> -->
+</div>
+<!-- Ask clarity -->
+<div class="mb-xl rounded-xl border border-primary/25 bg-primary-fixed/30 px-lg py-md max-w-4xl">
+<p class="font-body-md text-body-md text-on-surface"><strong>Ai trả tiền (trung hạn):</strong> gói SaaS / pilot trả phí cho HKD &amp; cá nhân kinh doanh online; <strong>đợt gọi vốn này để:</strong> hoàn thiện pipeline đối soát + RAG pháp lý + bằng chứng vận hành (50 người dùng pilot có log phản hồi).</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Key Metric: The Ask -->
+<div class="md:col-span-6 bg-surface-container-lowest rounded-xl p-xl border border-outline-variant shadow-sm flex flex-col justify-center relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-48 h-48 bg-primary opacity-5 rounded-full blur-2xl"></div>
+<h2 class="font-label-lg text-label-lg text-secondary uppercase tracking-widest mb-sm font-semibold">Nhu Cầu Vốn Giai Đoạn 1</h2>
+<div class="font-display-lg text-display-lg text-primary font-bold flex items-baseline gap-sm">
+                    500
+                    <span class="font-title-lg text-title-lg text-on-surface-variant font-normal">Triệu VNĐ</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-md max-w-[80%]">
+                    Khoản đầu tư hạt giống nhằm xây dựng hạ tầng kỹ thuật cốt lõi và triển khai chiến dịch thu hút người dùng thử nghiệm đầu tiên.
+                </p>
+</div>
+<!-- Key Metric: The Goal -->
+<div class="md:col-span-6 bg-surface-container-lowest rounded-xl p-xl border border-outline-variant shadow-sm flex flex-col justify-center relative overflow-hidden">
+<div class="absolute -left-10 -bottom-10 w-48 h-48 bg-tertiary opacity-5 rounded-full blur-2xl"></div>
+<h2 class="font-label-lg text-label-lg text-secondary uppercase tracking-widest mb-sm font-semibold">Mục Tiêu 6 Tháng Tới</h2>
+<div class="font-display-lg text-display-lg text-on-surface font-bold flex items-baseline gap-sm">
+                    50
+                    <span class="font-title-lg text-title-lg text-on-surface-variant font-normal">Khách Hàng Pilot</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-md max-w-[80%]">
+                    Tập trung <strong>người bán tự ghi CSV</strong> (MXH, web) để thu thập phản hồi thật, tinh chỉnh cảnh báo lệch &amp; Explain Tax — <strong>không</strong> nhắm “SME kế toán đầy đủ” trong giai đoạn seed.
+                </p>
+</div>
+<!-- Chart Section: Resource Allocation -->
+<div class="md:col-span-12 bg-surface-container-lowest rounded-xl p-xl border border-outline-variant shadow-sm mt-md">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-lg font-semibold border-b border-outline-variant pb-md">Phân Bổ Nguồn Lực Phân Bổ (Dự Kiến)</h3>
+<div class="flex flex-col md:flex-row items-center gap-2xl">
+<!-- CSS Pie Chart (Using Conic Gradient) -->
+<!-- Breakdown: 
+                         Tech (Primary #2812ad): 35% -> 0 to 126deg
+                         AI/Infra (Tertiary #003578): 25% -> 126deg to 216deg
+                         User Research (Secondary #734aa4): 20% -> 216deg to 288deg
+                         Marketing (Primary Container #4136c3): 15% -> 288deg to 342deg
+                         Contingency (Surface Tint #5249d3): 5% -> 342deg to 360deg 
+                    -->
+<div class="relative w-64 h-64 shrink-0 rounded-full flex items-center justify-center shadow-inner" style="background: conic-gradient(
+                            #2812ad 0deg 126deg,
+                            #003578 126deg 216deg,
+                            #734aa4 216deg 288deg,
+                            #4136c3 288deg 342deg,
+                            #5249d3 342deg 360deg
+                         );">
+<!-- Donut hole for modern look -->
+<div class="w-40 h-40 bg-surface-container-lowest rounded-full flex items-center justify-center shadow-sm">
+<span class="font-title-lg text-title-lg text-on-surface font-bold text-center leading-tight">Tổng Quan<br>Chi Phí</span>
+</div>
+</div>
+<!-- Chart Legend -->
+<div class="flex-grow w-full">
+<ul class="space-y-md">
+<!-- Legend Item 1 -->
+<li class="flex items-center justify-between p-md rounded-lg bg-surface hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-4 h-4 rounded-full bg-primary shadow-sm"></div>
+<span class="font-body-lg text-body-lg text-on-surface font-medium">Phát Triển Kỹ Thuật &amp; Sản Phẩm</span>
+</div>
+<span class="font-title-lg text-title-lg text-primary font-bold">35%</span>
+</li>
+<!-- Legend Item 2 -->
+<li class="flex items-center justify-between p-md rounded-lg bg-surface hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-4 h-4 rounded-full bg-tertiary shadow-sm"></div>
+<span class="font-body-lg text-body-lg text-on-surface font-medium">Hạ Tầng Server &amp; API AI</span>
+</div>
+<span class="font-title-lg text-title-lg text-tertiary font-bold">25%</span>
+</li>
+<!-- Legend Item 3 -->
+<li class="flex items-center justify-between p-md rounded-lg bg-surface hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-4 h-4 rounded-full bg-secondary shadow-sm"></div>
+<span class="font-body-lg text-body-lg text-on-surface font-medium">Nghiên Cứu &amp; Trải Nghiệm Người Dùng (UX)</span>
+</div>
+<span class="font-title-lg text-title-lg text-secondary font-bold">20%</span>
+</li>
+<!-- Legend Item 4 -->
+<li class="flex items-center justify-between p-md rounded-lg bg-surface hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-4 h-4 rounded-full bg-primary-container shadow-sm"></div>
+<span class="font-body-lg text-body-lg text-on-surface font-medium">Tiếp Thị &amp; Bán Hàng Giai Đoạn Đầu</span>
+</div>
+<span class="font-title-lg text-title-lg text-primary-container font-bold">15%</span>
+</li>
+<!-- Legend Item 5 -->
+<li class="flex items-center justify-between p-md rounded-lg bg-surface hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-4 h-4 rounded-full bg-surface-tint shadow-sm"></div>
+<span class="font-body-lg text-body-lg text-on-surface font-medium">Dự Phòng Rủi Ro</span>
+</div>
+<span class="font-title-lg text-title-lg text-surface-tint font-bold">5%</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Component (from JSON) -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface flex justify-between items-center w-full px-margin-desktop py-sm fixed bottom-0 left-0 z-50">
+<div class="font-label-lg text-label-lg font-semibold text-on-surface dark:text-surface-lowest">
+            © 2026 Scaify AI Intelligence. 
+        </div>
+<div class="flex gap-md font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">
+<a class="hover:underline hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-200" href="#">Pitch Deck</a>
+<a class="hover:underline hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-200" href="#">Team 072</a>
+</div>
+</footer>
+
+
+</body></html>

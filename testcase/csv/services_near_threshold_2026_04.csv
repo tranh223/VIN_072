@@ -1,0 +1,6 @@
+date,revenue,platform,period,customer,description,order_id,industry
+2026-04-01,12000000,Facebook,2026-04,Công ty ABC,Tư vấn thiết kế web,FB-001,Dịch vụ, xây dựng
+2026-04-08,15000000,Zalo,2026-04,Công ty XYZ,Thiết kế nhận diện thương hiệu,ZA-002,Dịch vụ, xây dựng
+2026-04-15,18000000,Website,2026-04,Công ty MNO,Phát triển phần mềm,WEB-003,Dịch vụ, xây dựng
+2026-04-22,20000000,Facebook,2026-04,Công ty PQR,Seo website,FB-004,Dịch vụ, xây dựng
+2026-04-29,14500000,Zalo,2026-04,Công ty STU,Bảo trì hệ thống,ZA-005,Dịch vụ, xây dựng

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: #4136C3;
+  --color-primary-container: #6236C2;
+  --color-primary-fixed: #e9ddff;
+  --color-primary-fixed-dim: #d0bcff;
+
+  --color-secondary: #734AA4;
+  --color-secondary-container: #ca9dfd;
+  --color-secondary-fixed: #efdbff;
+  --color-secondary-fixed-dim: #dab9ff;
+
+  --color-surface: #F9F9F9;
+  --color-surface-container: #EEEEEE;
+  --color-surface-container-low: #f3f3f4;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #e8e8e8;
+  --color-surface-container-highest: #e2e2e2;
+
+  --color-outline: #7A7485;
+  --color-outline-variant: #CBC3D6;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-tertiary: #003b83;
+  --color-tertiary-container: #1552a9;
+  --color-tertiary-fixed: #003b83;
+  --color-tertiary-fixed-dim: #adc6ff;
+
+  --color-on-surface: #1A1C1C;
+  --color-on-background: #1A1C1C;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+.glass-panel {
+  @apply backdrop-blur-md bg-white/70 border border-outline-variant;
+}
+
+.ai-border {
+  border-left: 2px solid;
+  border-image: linear-gradient(to bottom, #2812ad, #cbc3d6) 1;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-outline-variant/50 rounded-full;
+}
+
+button:not(:disabled):not([aria-disabled="true"]) {
+  transition-property: scale, transform, opacity, background-color, border-color, color, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+}
+
+button:not(:disabled):not([aria-disabled="true"]):hover {
+  scale: 1.04;
+}
+
+.intro-page .intro-lift {
+  transform: translateY(0) scale(1);
+  transition:
+    transform 220ms ease-out,
+    box-shadow 220ms ease-out,
+    border-color 220ms ease-out,
+    background-color 220ms ease-out;
+}
+
+.intro-page .intro-lift:hover {
+  transform: translateY(-6px) scale(1.025);
+  border-color: rgb(65 54 195 / 0.42);
+  box-shadow: 0 22px 50px -28px rgb(26 21 53 / 0.55);
+}
+
+.intro-page .intro-flow-step {
+  transform: translateY(0) scale(1);
+  transition:
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out,
+    background-color 200ms ease-out;
+}
+
+.intro-page .intro-flow-step:hover {
+  transform: translateY(-4px) scale(1.025);
+  background-color: rgb(255 255 255 / 0.08);
+  box-shadow: 0 18px 38px -28px rgb(255 255 255 / 0.35);
+}
+
+.intro-page .intro-flow-step:hover span {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 6px rgb(65 54 195 / 0.2);
+}

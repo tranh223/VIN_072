@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "ui": "npm --prefix ui run dev",
+    "ui:mock": "npm --prefix ui run dev:mock"
+  },
+  "dependencies": {
+    "mongodb": "^7.2.0"
+  }
+}

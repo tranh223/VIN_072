@@ -1,0 +1,6 @@
+date,revenue,platform,period,customer,description,order_id,industry
+2026-05-01,850000,Facebook,2026-05,Nguyễn Văn A,Bán 2 áo thun,FB-05-01,Phân phối, hàng hóa
+2026-05-05,850000,Zalo,2026-05,Trần Thị B,Bán 1 túi xách,ZA-05-02,Phân phối, hàng hóa
+2026-05-12,850000,Website,2026-05,Lê Văn C,Bán 5 sản phẩm,WEB-05-03,Phân phối, hàng hóa
+2026-05-18,850000,Instagram,2026-05,Phạm Thị D,Bán 3 áo sơ mi,IG-05-04,Phân phối, hàng hóa
+2026-05-25,850000,TikTok,2026-05,Hoàng Thị E,Bán 4 khăn,TT-05-05,Phân phối, hàng hóa

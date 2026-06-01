@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Scaify - Đối soát và chuẩn bị hồ sơ thuế thông minh</title>
+<!-- Google Fonts: Noto Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Design System -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf8ff",
+                        "surface-tint": "#5249d3",
+                        "outline-variant": "#CBC3D6",
+                        "inverse-on-surface": "#f3effb",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8ff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1b1b23",
+                        "on-tertiary-container": "#a4c1ff",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#4136c3",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#2a0053",
+                        "primary": "#2812ad",
+                        "secondary-fixed-dim": "#dab9ff",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-dim": "#dcd8e4",
+                        "secondary-container": "#c99dfe",
+                        "inverse-surface": "#302f38",
+                        "tertiary": "#003578",
+                        "surface-container-highest": "#e4e1ed",
+                        "surface-container-high": "#eae6f2",
+                        "surface-highest": "#E2E2E2",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-primary-fixed": "#100069",
+                        "on-background": "#1b1b23",
+                        "on-secondary-container": "#572d87",
+                        "on-tertiary-fixed": "#001a41",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-lowest": "#FFFFFF",
+                        "on-primary-container": "#bdb9ff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-surface-variant": "#464554",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fcf8ff",
+                        "error": "#BA1A1A",
+                        "on-secondary-fixed-variant": "#5a318a",
+                        "surface-container-low": "#f6f2fe",
+                        "tertiary-container": "#204d95",
+                        "inverse-primary": "#c3c0ff",
+                        "secondary-fixed": "#eedbff",
+                        "primary-fixed": "#E9DDFF",
+                        "surface-variant": "#e4e1ed",
+                        "on-primary-fixed-variant": "#392cbb",
+                        "surface-container": "#f0ecf8",
+                        "secondary": "#734aa4",
+                        "outline": "#777586",
+                        "on-tertiary-fixed-variant": "#13448d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "margin-desktop": "32px",
+                        "3xl": "64px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Sans", "sans-serif"],
+                        "label-sm": ["Noto Sans", "sans-serif"],
+                        "label-lg": ["Noto Sans", "sans-serif"],
+                        "body-md": ["Noto Sans", "sans-serif"],
+                        "body-lg": ["Noto Sans", "sans-serif"],
+                        "title-lg": ["Noto Sans", "sans-serif"],
+                        "display-lg": ["Noto Sans", "sans-serif"],
+                        "headline-lg-mobile": ["Noto Sans", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Base styles to enforce slide aspect ratio constraints in browser */
+        body {
+            background-color: #e4e1ed; /* surface-variant to frame the slide */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: auto;
+        }
+        /* Khung 16:9; nội dung dài cuộn trong main (header/footer cố định) */
+        #slide-canvas {
+            width: 100%;
+            max-width: 1920px;
+            height: min(56.25vw, 100vh, 100dvh); /* 9/16 của chiều ngang, tối đa full màn hình */
+            max-height: 100vh;
+            background-color: #fcf8ff;
+            box-shadow: 0 25px 50px -12px rgba(40, 18, 173, 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            min-height: 0;
+        }
+        /* Typography overrides to ensure font family applies correctly */
+        * {
+            font-family: 'Noto Sans', sans-serif;
+        }
+        /* Icon styling */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body>
+<!-- 1920x1080 Presentation Slide Canvas -->
+<div id="slide-canvas">
+<!-- TopAppBar Shared Component Logic -->
+<header class="flex justify-between items-center w-full px-margin-desktop py-md max-w-full bg-surface z-10 shrink-0">
+<div class="flex items-center gap-sm"><img src="../assets/scaify-logo.png" alt="Scaify Logo" class="h-8 w-auto object-contain"></div>
+<div class="flex items-center gap-md">
+<!-- Suppressed navigation logic: This is a presentation slide, linear intent. Suppressing global nav links. -->
+<button class="cursor-pointer transition-opacity active:opacity-70 w-10 h-10 rounded-full hover:bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col justify-start px-margin-desktop py-xl overflow-y-auto min-h-0 relative overscroll-y-contain">
+<!-- Background decorative elements for modern corporate vibe -->
+<div class="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-fixed-dim opacity-10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary-fixed-dim opacity-10 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+<div class="grid grid-cols-12 gap-gutter min-h-0 z-10">
+<!-- Left Column: SCQA Content (Bento Grid Style) -->
+<div class="col-span-7 flex flex-col justify-start min-h-0 gap-lg">
+<h1 class="font-display-lg text-display-lg text-on-surface font-bold leading-tight">
+                        Đối soát &amp; chuẩn bị <br>
+<span class="text-primary">hồ sơ thuế thông minh</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-md pr-md border-l-4 border-primary pl-md italic max-w-2xl">
+                        Chúng tôi giúp <strong>hộ kinh doanh / cá nhân bán online</strong> (Facebook, Zalo, TikTok, web — <strong>không</strong> settlement sàn) <strong>khớp CSV ↔ chứng từ</strong>, xem trước thuế và cảnh báo ngưỡng <strong>bằng OCR/VLM + rule minh bạch</strong>, thay vì chỉ Excel/Google Sheet dễ lệch tay.
+                    </p>
+<!-- SCQA Bento Grid -->
+<div class="grid grid-cols-2 gap-md mt-sm">
+<!-- Situation (Bối cảnh) -->
+<div class="bg-surface-container-low rounded-xl p-lg border border-outline-variant hover:bg-surface-container transition-colors h-full flex flex-col">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center mb-md shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">storefront</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-sm">Bối cảnh (Situation)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                                Người bán đa kênh tự ghi doanh thu (CSV) từ Facebook, Zalo, TikTok, Instagram, website — các kênh <strong>không có chức năng thanh toán tập trung</strong> như sàn TMĐT; dữ liệu rời rạc giữa file và chứng cứ ảnh/PDF.
+                            </p>
+</div>
+<!-- Complication (Mâu thuẫn) -->
+<div class="bg-error-container rounded-xl p-lg border border-transparent h-full flex flex-col">
+<div class="w-12 h-12 rounded-full bg-[#ffb4ab] flex items-center justify-center mb-md shrink-0">
+<span class="material-symbols-outlined text-on-error-container" style="font-variation-settings: &quot;FILL&quot; 1;">warning</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-error-container mb-sm">Mâu thuẫn (Complication)</h3>
+<p class="font-body-md text-body-md text-[#93000a] flex-grow opacity-90">
+                                Đối soát thủ công kéo dài, dễ <strong>lệch số</strong> khi gần/vượt ngưỡng chịu thuế; thiếu <strong>giải thích “vì sao con số này”</strong> → stress trước kỳ khai và rủi ro giải trình.
+                            </p>
+</div>
+<!-- Question (Câu hỏi) -->
+<div class="col-span-2 bg-surface-container rounded-xl p-lg border border-outline-variant flex items-center gap-lg">
+<div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container text-[28px]">psychology_alt</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-xs">Bài toán đặt ra</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic">
+                                    "Làm sao <strong>giảm sai sót</strong> khi tổng hợp &amp; đối soát dữ liệu tự ghi, có <strong>cảnh báo lệch</strong> và <strong>Explain Tax</strong> minh bạch — mà không cần mở rộng đội kế toán?"
+                                </p>
+</div>
+</div>
+<!-- Answer (Giải pháp) -->
+<div class="col-span-2 bg-primary rounded-xl p-xl shadow-lg relative overflow-hidden flex items-center gap-lg mt-sm">
+<!-- Decorative background glow for primary card -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/30 to-transparent pointer-events-none"></div>
+<div class="w-16 h-16 rounded-full bg-surface flex items-center justify-center shrink-0 shadow-md relative z-10">
+<span class="material-symbols-outlined text-primary text-[32px]" style="font-variation-settings: &quot;FILL&quot; 1;">auto_awesome</span>
+</div>
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg text-on-primary mb-xs">Scaify</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim">
+                                    Tự động hóa đối soát CSV với chứng từ (OCR/VLM), preview GTGT/TNCN theo ngành, compliance score &amp; ngưỡng 1 tỷ/năm — dashboard chỉ ra chỗ cần sửa.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Hero Illustration -->
+<div class="col-span-5 flex items-start justify-center min-h-0 pl-lg pt-2">
+<div class="w-full aspect-[3/4] max-h-[800px] rounded-2xl overflow-hidden shadow-2xl relative border border-outline-variant/30">
+<img alt="Data Visualization Concept" class="w-full h-full object-cover object-center" data-alt="A high-end, futuristic 3D digital illustration representing artificial intelligence processing massive amounts of scattered e-commerce sales data. The scene features abstract glowing geometric data nodes, holographic charts, and flowing light trails converging into a central, organized, and structured database core. The color palette relies heavily on deep indigo, vibrant violet (#5249d3, #2812ad), and soft white (#fcf8ff), adhering to a modern corporate light-mode aesthetic. The lighting is studio-quality, high-key, creating a clean, professional, and technologically advanced mood suitable for an enterprise software presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUKwCspDx63Uq0IKb1xn7lhB_NRiBDEe3VKvu1XrSatCKf9-h7HlRpuFYXc0VVS51saXA6YJiKU2Yz6O4NygOeH491J8zJx0YGWa8AKg-ax6F2CKKyzVoRx93JyQswsyyvpn70gYEcyVr2wCAXfxQ5TZy81_5cLcfZyBhP_0XO1VlAOa35x9Kx9KztI02OLXkZH5nLG0CjhsORf1deXLElwL72HXNz8beWdJj1E1NYPyDlB_8A3gfV0GUOCLRJriDOT10U1S1OL5E">
+<!-- Overlay gradient to blend image smoothly into the layout -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent"></div>
+<!-- Floating Glassmorphism Data Card -->
+<div class="absolute bottom-lg left-lg right-lg bg-surface/80 backdrop-blur-md rounded-xl p-md border border-surface-lowest/50 shadow-lg flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container">done_all</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Trạng thái xử lý</div>
+<div class="font-title-lg text-title-lg text-on-surface font-semibold">Khớp có kiểm chứng</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shared Component Logic -->
+<footer class="flex justify-between items-center w-full px-margin-desktop py-md bg-surface-container-low shrink-0 border-t border-surface-dim/30">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">
+                Scaify
+            </span>
+<div class="flex items-center gap-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">© 2026 Scaify AI. MVP — không thay thế kê khai chính thức.</span>
+<div class="flex gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</div>
+
+
+</body></html>
