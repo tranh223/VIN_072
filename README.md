@@ -102,8 +102,8 @@ Chi tiết + sơ đồ Mermaid: **[docs/04-system-architecture.md](./docs/04-sys
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/a20-ai-thuc-chien/A20-App-072.git
-cd A20-App-072
+git clone https://github.com/tranh223/VIN_072.git
+cd VIN_072
 ```
 
 ### 2. Python virtual environment + dependencies
